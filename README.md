@@ -15,4 +15,4 @@ samtlige steder i koden der det er skrevet inn "TODO:". En grei måte
 
 Husk å commit-e med jevne mellomrom.
 
-LYKKE TIL!
+LYKKE TIL!!
