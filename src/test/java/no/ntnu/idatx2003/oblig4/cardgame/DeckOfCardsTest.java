@@ -1,5 +1,6 @@
 package no.ntnu.idatx2003.oblig4.cardgame;
 
+import no.ntnu.idatx2003.oblig4.cardgame.card.DeckOfCards;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,7 @@ class DeckOfCardsTest {
 
   /**
    * Sets up the test environment before each test method.
-   * Initializes the deck object with 52 playing cards.
+   * Initializes the deck object with 52 playing Cards.
    */
 
   @BeforeEach
