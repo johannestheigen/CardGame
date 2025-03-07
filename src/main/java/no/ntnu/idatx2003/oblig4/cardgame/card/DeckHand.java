@@ -9,7 +9,7 @@ import java.util.List;
  * ArrayList libraries.
 
  * @author Johannes Nupen Theigen
- * @version 0.0.2
+ * @version 0.0.3
  * @since 03.07.2025
  */
 public class DeckHand {
@@ -34,18 +34,6 @@ public class DeckHand {
       throw new NullPointerException("Playing card cannot be null");
     }
     hand.add(card);
-  }
-
-  /**
-   * Removes a playing card from the hand. (e.g. S12)
-
-   * @param card the playing card to remove from the hand
-   */
-  public void removeCard(PlayingCard card) {
-    if (card == null) {
-      throw new NullPointerException("Playing card cannot be null");
-    }
-    hand.remove(card);
   }
 
   /**
