@@ -11,12 +11,12 @@ import java.util.Random;
  * libraries.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.3
+ * @version 0.0.4
  * @since 03.07.2025
  */
 public class DeckOfCards {
 
-  private final List<PlayingCard> cards;
+  private List<PlayingCard> cards;
   private final char[] suits = {'S', 'H', 'D', 'C'};
   private final Random random;
 
@@ -55,16 +55,28 @@ public class DeckOfCards {
   }
 
   /**
-   * Shuffles the deck of playing Cards.
-   *
-   * @return true if the deck was successfully shuffled, false otherwise
+   * Sets the deck of playing Cards to the specified list of playing Cards.
+   * Primarily used for testing purposes to set the state of
+   * deck to a specific state for testing different scenarios. (e.g. null cases).
+   * @param cards the list of playing Cards to set the deck to
    */
-  public boolean shuffle() {
-    if (cards == null || cards.isEmpty()) {
-      return false;
+  public void setDeck(List<PlayingCard> cards) {
+    this.cards = cards;
+  }
+
+  /**
+   * Shuffles the deck of playing cards.
+   *
+   * @throws IllegalStateException if the deck is null or empty.
+   */
+  public void shuffle() {
+    if (cards == null) {
+      throw new NullPointerException("Deck is null");
+    } else if (cards.isEmpty()) {
+      throw new IllegalStateException("Deck is empty");
+    } else {
+      Collections.shuffle(cards);
     }
-    Collections.shuffle(cards);
-    return true;
   }
 
   /**
@@ -75,7 +87,7 @@ public class DeckOfCards {
    */
   public PlayingCard drawCard() {
     if (cards.isEmpty()) {
-      return null;
+      throw new IllegalStateException("Deck is empty");
     }
     return cards.remove(random.nextInt(cards.size()));
   }
@@ -87,5 +99,23 @@ public class DeckOfCards {
    */
   public int getCardCount() {
     return cards.size();
+  }
+
+  /**
+   * Returns a copy of the list of playing Cards in the deck.
+   * The method is primarily used for testing purposes.
+   * @return a copy of the list of playing Cards in the deck
+   */
+  public List<PlayingCard> getCards() {
+    return new ArrayList<>(cards);
+  }
+
+  /**
+   * Clears the deck of playing Cards.
+   * Primarily used for testing purposes. (e.g. testing
+   * scenarios where the deck is empty)
+   */
+  public void clearDeck() {
+    cards.clear();
   }
 }
