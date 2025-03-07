@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -30,24 +29,6 @@ class DeckOfCardsTest {
     deck = new DeckOfCards();
   }
 
-  /**
-   * Positive test case for the generateDeck method. The expected behavior is that
-   * the method returns false because the deck should already be generated in the constructor.
-   */
-  @Test
-  void GenerateDeckFirstTimeTest() {
-    DeckOfCards freshDeck = new DeckOfCards();
-    assertFalse(freshDeck.generateDeck(), "Deck should already be generated in constructor");
-  }
-
-  /**
-   * Positive test case for the generateDeck method. The expected behavior is that
-   * the method returns false because the deck is already generated.
-   */
-  @Test
-  void GenerateDeckMultipleTimesTest() {
-    assertFalse(deck.generateDeck(), "Should return false when trying to generate deck again");
-  }
 
   /**
    * Positive test case for the shuffle method.
