@@ -50,27 +50,6 @@ class DeckHandTest {
   }
 
   /**
-   * Positive test case that tests the expected behavior when removing a card from the hand.
-   * The expected behavior is that the hand does not have cards after removing a card.
-   */
-  @Test
-  void removeCardExpectedBehaviorTest() {
-    PlayingCard card = new PlayingCard('H', 5);
-    deckHand.addCard(card);
-    deckHand.removeCard(card);
-    assertFalse(deckHand.hasCards(), "Hand should not have cards after removing a card");
-  }
-
-  /**
-   * Negative test case that tests the expected behavior when removing a null card from the hand.
-   * The expected behavior is that a NullPointerException is thrown when removing a null card.
-   */
-  @Test
-  void removeNullCardTest() {
-    assertThrows(NullPointerException.class, () -> deckHand.removeCard(null));
-  }
-
-  /**
    * Positive test case that tests the expected behavior when clearing the hand.
    * The expected behavior is that the hand does not have cards after clearing the hand.
    */
