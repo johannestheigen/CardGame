@@ -9,8 +9,8 @@ import java.util.List;
  * ArrayList libraries.
 
  * @author Johannes Nupen Theigen
- * @version 0.0.1
- * @since 03.06.2025
+ * @version 0.0.2
+ * @since 03.07.2025
  */
 public class DeckHand {
 
@@ -27,8 +27,12 @@ public class DeckHand {
    * Adds a playing card to the hand. (e.g. H5)
 
    * @param card the playing card to add to the hand
+   * @throws NullPointerException if the playing card is null
    */
   public void addCard(PlayingCard card) {
+    if (card == null) {
+      throw new NullPointerException("Playing card cannot be null");
+    }
     hand.add(card);
   }
 
@@ -38,6 +42,9 @@ public class DeckHand {
    * @param card the playing card to remove from the hand
    */
   public void removeCard(PlayingCard card) {
+    if (card == null) {
+      throw new NullPointerException("Playing card cannot be null");
+    }
     hand.remove(card);
   }
 
