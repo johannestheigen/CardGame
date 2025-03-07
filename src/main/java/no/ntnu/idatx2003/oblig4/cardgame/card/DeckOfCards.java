@@ -11,8 +11,8 @@ import java.util.Random;
  * libraries.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.2
- * @since 03.05.2025
+ * @version 0.0.3
+ * @since 03.07.2025
  */
 public class DeckOfCards {
 
@@ -24,7 +24,7 @@ public class DeckOfCards {
    * Initializes a new DeckOfCards object with a standard deck of
    * 52 playing Cards (4 suits and 13 faces).
    * The Cards are stored in an ArrayList and generated in
-   * the constructor using the generateDeck method.
+   * using the generateDeck method.
    */
   public DeckOfCards() {
     cards = new ArrayList<>();
