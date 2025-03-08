@@ -11,8 +11,8 @@ import java.util.Random;
  * libraries.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.5
- * @since 03.07.2025
+ * @version 0.0.6
+ * @since 03.08.2025
  */
 public class DeckOfCards {
 
@@ -108,5 +108,6 @@ public class DeckOfCards {
    */
   public void clearDeck() {
     cards.clear();
+    generateDeck();
   }
 }
