@@ -1,7 +1,5 @@
-package no.ntnu.idatx2003.oblig4.cardgame;
+package model;
 
-import model.DeckOfCards;
-import model.PlayingCard;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -91,5 +89,15 @@ class DeckOfCardsTest {
   @Test
   void getCardCountTest() {
     assertEquals(52, deck.getCardCount(), "Deck should have 52 cards");
+  }
+
+  /**
+   * Positive test case for the resetDeck method. The expected behavior is that
+   * the deck is reset to have 52 cards.
+   */
+  @Test
+  void resetDeckTest() {
+    deck.resetDeck();
+    assertEquals(52, deck.getCardCount(), "Deck should have 52 cards after reset");
   }
 }

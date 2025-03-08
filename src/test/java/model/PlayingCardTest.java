@@ -1,6 +1,5 @@
-package no.ntnu.idatx2003.oblig4.cardgame;
+package model;
 
-import model.PlayingCard;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

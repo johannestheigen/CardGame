@@ -1,7 +1,5 @@
-package no.ntnu.idatx2003.oblig4.cardgame;
+package model;
 
-import model.DeckHand;
-import model.PlayingCard;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
