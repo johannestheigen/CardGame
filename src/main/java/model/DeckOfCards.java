@@ -108,6 +108,14 @@ public class DeckOfCards {
    */
   public void clearDeck() {
     cards.clear();
+  }
+
+  /**
+   * Resets the deck of playing Cards. The deck is cleared and
+   * a new standard deck of 52 playing Cards is generated.
+   */
+  public void resetDeck() {
+    clearDeck();
     generateDeck();
   }
 }
