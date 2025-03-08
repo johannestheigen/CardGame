@@ -36,6 +36,10 @@ public class DeckHand {
     hand.add(card);
   }
 
+  public PlayingCard getCardOnHand() {
+    return hand.getFirst();
+  }
+
   /**
    * Removes all playing cards from the hand.
    */
@@ -65,13 +69,15 @@ public class DeckHand {
     return !hand.isEmpty();
   }
 
-  /**
-   * Checks if the hand contains a playing card with hearts as the suit.
+  public List<String> getHeartCardStrings() {
+    return hand.stream()
+        .filter(card -> card.getSuit() == 'H')
+        .map(PlayingCard::getAsString)
+        .toList();
+  }
 
-   * @return true if the hand contains a playing card with hearts as the suit, false otherwise
-   */
-  public boolean isHeart() {
-    return hand.stream().anyMatch(card -> card.getSuit() == 'H');
+  public PlayingCard[] getCardsOnHand() {
+    return hand.toArray(new PlayingCard[0]);
   }
 
   /**
