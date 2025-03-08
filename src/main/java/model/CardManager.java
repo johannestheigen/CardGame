@@ -9,8 +9,8 @@ package model;
  * spade and a queen, and checking if the hand contains a flush.
 
  * @author Johannes Nupen Theigen
- * @version 0.0.1
- * @since 03.07.2025
+ * @version 0.0.2
+ * @since 03.08.2025
  */
 public class CardManager {
 
@@ -35,7 +35,7 @@ public class CardManager {
   public void drawCards(int n) {
 
     if (deck.getCardCount() < n) {
-      throw new IllegalArgumentException("Not enough cards in the deck");
+      deck.resetDeck();
     }
     hand.clearHand();
     for (int i = 0; i < n; i++) {
