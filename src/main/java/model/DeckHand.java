@@ -1,10 +1,10 @@
-package no.ntnu.idatx2003.oblig4.cardgame.card.model;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The DeckHand class represents a hand of playing cards.
+ * The model.DeckHand class represents a hand of playing cards.
  * The class is implemented using the List and
  * ArrayList libraries.
 
@@ -17,7 +17,7 @@ public class DeckHand {
   private final List<PlayingCard> hand; // The hand of playing cards
 
   /**
-   * Creates an instance of a DeckHand object with an empty hand of playing cards.
+   * Creates an instance of a model.DeckHand object with an empty hand of playing cards.
    */
   public DeckHand() {
     hand = new ArrayList<>();

@@ -1,4 +1,4 @@
-package no.ntnu.idatx2003.oblig4.cardgame.card.model;
+package model;
 
 /**
  * Represents a playing card. A playing card has a number (face) between
@@ -14,7 +14,7 @@ public class PlayingCard {
   private final int face; // a number between 1 and 13
 
   /**
-   * Creates an instance of a PlayingCard with a given suit and face.
+   * Creates an instance of a model.PlayingCard with a given suit and face.
    * The face value is an integer between 1 and 13, where 11 represents the jack,
    * 12 represents the queen and 13 represents the king. The Ace is represented by the
    * number 1.

@@ -1,7 +1,7 @@
 package no.ntnu.idatx2003.oblig4.cardgame;
 
-import no.ntnu.idatx2003.oblig4.cardgame.card.model.DeckOfCards;
-import no.ntnu.idatx2003.oblig4.cardgame.card.model.PlayingCard;
+import model.DeckOfCards;
+import model.PlayingCard;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,8 +9,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * DeckOfCardsTest contains test cases for the DeckOfCards class. The test cases
- * are used to test the expected behavior when creating a DeckOfCards object, and
+ * DeckOfCardsTest contains test cases for the model.DeckOfCards class. The test cases
+ * are used to test the expected behavior when creating a model.DeckOfCards object, and
  * when calling its methods generateDeck, shuffle, drawCard, and getCardCount.
  * The test cases are structured using the Arrange, Act and Assert (AAA)
  * pattern to structure the test methods. The setDeck, getCards, and clearDeck
@@ -26,7 +26,7 @@ class DeckOfCardsTest {
    */
   @BeforeEach
   void setUp() {
-    deck = new DeckOfCards();
+    deck = new model.DeckOfCards();
   }
 
 

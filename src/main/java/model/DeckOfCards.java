@@ -1,4 +1,4 @@
-package no.ntnu.idatx2003.oblig4.cardgame.card.model;
+package model;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * The DeckOfCards class represents a deck of playing Cards. The deck is a standard deck of 52
+ * The model.DeckOfCards class represents a deck of playing Cards. The deck is a standard deck of 52
  * playing Cards, with 4 suits and 13 faces. The class is implemented using the List and ArrayList
  * libraries.
  *
@@ -21,7 +21,7 @@ public class DeckOfCards {
   private final Random random;
 
   /**
-   * Initializes a new DeckOfCards object with a standard deck of
+   * Initializes a new model.DeckOfCards object with a standard deck of
    * 52 playing Cards (4 suits and 13 faces).
    * The Cards are stored in an ArrayList and generated in
    * using the generateDeck method.

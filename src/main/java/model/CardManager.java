@@ -1,8 +1,8 @@
-package no.ntnu.idatx2003.oblig4.cardgame.card.model;
+package model;
 
 /**
- * The CardManager class represents a manager for a deck of playing cards and a hand of playing
- * cards. The class is implemented using the DeckOfCards and DeckHand classes and it enables
+ * The model.CardManager class represents a manager for a deck of playing cards and a hand of playing
+ * cards. The class is implemented using the model.DeckOfCards and model.DeckHand classes and it enables
  * the two classes to interact with each other. The class provides methods for dealing a hand of
  * playing cards, shuffling the deck of playing cards, calculating the sum of the face values of the
  * playing cards in the hand, checking if the hand contains a heart, checking if the hand contains a
@@ -18,7 +18,7 @@ public class CardManager {
   private final DeckHand hand;
 
   /**
-   * Initializes a new CardManager object with a deck of playing cards and an empty hand of playing
+   * Initializes a new model.CardManager object with a deck of playing cards and an empty hand of playing
    * cards.
    */
   public CardManager() {
