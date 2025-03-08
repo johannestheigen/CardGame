@@ -1,11 +1,11 @@
 import view.CardGameView;
 
 /**
- * The Main class is the entry point of the card game application.
+ * The Main class is the entry point of the application.
  * The class contains the main method which launches the graphical user interface.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.1
+ * @version 0.0.2
  * @since 03.08.2025
  */
 public class Main {
