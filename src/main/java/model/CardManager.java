@@ -9,7 +9,7 @@ package model;
  * spade and a queen, and checking if the hand contains a flush.
 
  * @author Johannes Nupen Theigen
- * @version 0.0.2
+ * @version 0.0.3
  * @since 03.08.2025
  */
 public class CardManager {
@@ -44,14 +44,6 @@ public class CardManager {
   }
 
   /**
-   * Shuffles the deck of playing cards in a
-   * random sequence. (e.g. S12, H5, D9, C3 ...)
-   */
-  public void shuffleDeck() {
-    deck.shuffle();
-  }
-
-  /**
 
    * Calculates the sum of the face values of the playing cards in the hand. (e.g. H5, S12 = 17)
 
@@ -60,17 +52,6 @@ public class CardManager {
   public int calculateSumOfCardsOnHand() {
     return hand.calculateSumOfCards();
   }
-
-
-  /**
-   * Checks if the hand contains a heart card. (e.g. H5)
-
-   * @return true if the hand contains a heart card, false otherwise
-   */
-  public boolean checkIfHandContainsHearth() {
-    return hand.isHeart();
-  }
-
 
   /**
    * Checks if the hand contains a spade card with face value 12 (Queen).
@@ -90,5 +71,9 @@ public class CardManager {
    */
   public boolean checkIfHandContainsFlush() {
     return hand.isFlush();
+  }
+
+  public DeckHand getHand() {
+    return hand;
   }
 }
