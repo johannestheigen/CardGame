@@ -13,7 +13,7 @@ Information about the cards in the hand such as the sum, amount of hearts, if th
 contains a queen of spades.
 
 ![CardGame](src/main/resources/screenshotapp.png)
-Screenshot of the CardGame application's GUI
+Screenshot of the CardGame application
 
 ## Project Structure
 
