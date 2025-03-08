@@ -9,8 +9,8 @@ import java.util.List;
  * ArrayList libraries.
 
  * @author Johannes Nupen Theigen
- * @version 0.0.3
- * @since 03.07.2025
+ * @version 0.0.4
+ * @since 03.08.2025
  */
 public class DeckHand {
 
