@@ -7,9 +7,3 @@ out/
 
 # Maven
 target/
-
-# Stage specific files and folders
-Stage/
-src/main/java/LaunchApp.java
-View/
-resources/
