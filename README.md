@@ -8,6 +8,7 @@ assignment for the Programming 2 course at the Norwegian University of Science a
 
 ## Project Structure
 
+```aiignore
 C:.
 |   .gitignore
 |   pom.xml
@@ -80,6 +81,7 @@ C:.
 |
 \---generated-sources
 \---annotations
+```
 
 ## How to run the project
 
