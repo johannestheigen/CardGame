@@ -37,7 +37,7 @@
                 <version>0.0.8</version>
                 <configuration>
                     <mainClass>
-                        // TODO: Sett riktig main class
+                        src/main/java/Main.java
                     </mainClass>
                 </configuration>
             </plugin>
