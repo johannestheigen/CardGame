@@ -7,8 +7,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * DeckOfCardsTest contains test cases for the model.DeckOfCards class. The test cases
- * are used to test the expected behavior when creating a model.DeckOfCards object, and
+ * DeckOfCardsTest contains test cases for the DeckOfCards class. The test cases
+ * are used to test the expected behavior when creating a DeckOfCards object, and
  * when calling its methods generateDeck, shuffle, drawCard, and getCardCount.
  * The test cases are structured using the Arrange, Act and Assert (AAA)
  * pattern to structure the test methods. The setDeck, getCards, and clearDeck
@@ -24,7 +24,7 @@ class DeckOfCardsTest {
    */
   @BeforeEach
   void setUp() {
-    deck = new model.DeckOfCards();
+    deck = new DeckOfCards();
   }
 
 
