@@ -13,8 +13,8 @@ import javafx.scene.image.Image;
  * The class is implemented using the HashMap and Image libraries.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.1
- * @since 03.08.2025
+ * @version 0.0.2
+ * @since 03.09.2025
  */
 public class CardFaceManager {
 
@@ -45,7 +45,7 @@ public class CardFaceManager {
     }
   }
 
-  /**
+  /*
    * Loads an image from a given path.
 
    * @param path the path to the image to be loaded.
