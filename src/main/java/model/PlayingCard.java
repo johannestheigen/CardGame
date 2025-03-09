@@ -6,7 +6,9 @@ package model;
  * The card can also be one of 4 suits: Spade, Heart, Diamonds and Clubs.
  *
  * @author ntnu
- * @version 2021-03-13
+ * @author Johannes Nupen Theigen
+ * @version 0.0.1
+ * @since 03.09.2025
  */
 public class PlayingCard {
 
@@ -18,8 +20,6 @@ public class PlayingCard {
    * The face value is an integer between 1 and 13, where 11 represents the jack,
    * 12 represents the queen and 13 represents the king. The Ace is represented by the
    * number 1.
-   *
-   * <p>If the suit or face are invalid, an {@code IllegalArgumentException} is thrown.</p>
    *
    * @param suit The suit of the card, as a single character. 'S' for Spades,
    *             'H' for Heart, 'D' for Diamonds and 'C' for clubs
@@ -68,6 +68,12 @@ public class PlayingCard {
     return face;
   }
 
+  /**
+   * Returns the color of the card.
+   * Hearts and Diamonds are red, while Spades and Clubs are black.
+   *
+   * @return the color of the card
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -80,6 +86,10 @@ public class PlayingCard {
     return getSuit() == otherCard.getSuit() && getFace() == otherCard.getFace();
   }
 
+  /**
+   * Returns a hash code value for the object.
+   * @return a hash code value for this object.
+   */
   @Override
   public int hashCode() {
     int hash = 7;
