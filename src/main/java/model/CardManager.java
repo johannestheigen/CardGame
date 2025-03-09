@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 /**
  * The model.CardManager class represents a manager for a deck of playing cards and a hand of playing
  * cards. The class is implemented using the model.DeckOfCards and model.DeckHand classes and it enables
@@ -9,8 +11,8 @@ package model;
  * spade and a queen, and checking if the hand contains a flush.
 
  * @author Johannes Nupen Theigen
- * @version 0.0.3
- * @since 03.08.2025
+ * @version 0.0.4
+ * @since 03.09.2025
  */
 public class CardManager {
 
@@ -62,6 +64,14 @@ public class CardManager {
     return hand.isSpadeAndQueen();
   }
 
+  /**
+   * Checks if the hand contains a heart. A heart is a playing card with the suit 'H'.
+
+   * @return a list of the hearts in the hand
+   */
+  public List<String> checkIfHandContainsHearts() {
+    return hand.getHeartCards();
+  }
 
   /**
    * Checks if the hand contains a flush. A flush is when all the playing cards in the hand
