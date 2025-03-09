@@ -11,8 +11,8 @@ import java.util.Random;
  * libraries.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.6
- * @since 03.08.2025
+ * @version 0.0.7
+ * @since 03.09.2025
  */
 public class DeckOfCards {
 
@@ -49,6 +49,7 @@ public class DeckOfCards {
    * Sets the deck of playing Cards to the specified list of playing Cards.
    * Primarily used for testing purposes to set the state of
    * deck to a specific state for testing different scenarios. (e.g. null cases).
+
    * @param cards the list of playing Cards to set the deck to
    */
   public void setDeck(List<PlayingCard> cards) {
@@ -58,6 +59,7 @@ public class DeckOfCards {
   /**
    * Shuffles the deck of playing cards.
    *
+   * @throws NullPointerException if the deck is null.
    * @throws IllegalStateException if the deck is null or empty.
    */
   public void shuffle() {
@@ -75,6 +77,7 @@ public class DeckOfCards {
    * and returned to the caller.
 
    * @return a random playing Card from the deck, or null if the deck is empty
+   * @throws IllegalStateException if the deck is empty
    */
   public PlayingCard drawCard() {
     if (cards.isEmpty()) {
@@ -95,6 +98,7 @@ public class DeckOfCards {
   /**
    * Returns a copy of the list of playing Cards in the deck.
    * The method is primarily used for testing purposes.
+
    * @return a copy of the list of playing Cards in the deck
    */
   public List<PlayingCard> getCards() {
