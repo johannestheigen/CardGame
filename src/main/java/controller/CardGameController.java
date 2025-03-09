@@ -10,8 +10,8 @@ import view.CardGameView;
  * logic and view together.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.1
- * @since 03.08.2025
+ * @version 0.0.2
+ * @since 03.09.2025
  */
 public class CardGameController {
   private final CardManager cardManager;
@@ -49,10 +49,9 @@ public class CardGameController {
    */
   public void checkHand() {
     int sum = cardManager.calculateSumOfCardsOnHand();
-    List<String> hearts = cardManager.getHand().getHeartCardStrings();
+    List<String> hearts = cardManager.checkIfHandContainsHearts(); // Debug this
     boolean hasFlush = cardManager.checkIfHandContainsFlush();
     boolean hasQueenOfSpades = cardManager.checkIfHandContainsSpadeAndQueen();
-
     cardGameView.updateInfoPane(sum, hearts, hasFlush, hasQueenOfSpades);
   }
 }
