@@ -4,6 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DeckHandTest {
@@ -70,24 +72,37 @@ class DeckHandTest {
   }
 
   /**
-   * Positive test case that tests the expected behavior when checking if the hand has cards.
-   * The expected behavior is that the method returns true when the hand has cards.
+   * Positive test case that tests the expected behavior when checking if the hand has hearts.
+   * The expected behavior is that the method returns a list containing only the heart cards.
    */
   @Test
-  void isHeartTest() {
+  void getHeartCardsExpectedBehaviorTest() {
     deckHand.addCard(new PlayingCard('H', 5));
-    assertTrue(deckHand.isHeart(), "Hand should contain a heart card");
+    deckHand.addCard(new PlayingCard('S', 12));
+    deckHand.addCard(new PlayingCard('H', 1));
+    deckHand.addCard(new PlayingCard('H', 10));
+    deckHand.addCard(new PlayingCard('H', 3));
+
+    assertEquals(4, deckHand.getHeartCards().size(), "Hand should contain 4 heart cards");
   }
 
   /**
-   * Positive test case that tests the expected behavior when checking if the hand has cards
-   * that are hearts. The expected behavior is that the method returns false when the hand
-   * does not contain a heart card.
+   * Positive test case that tests the expected behavior when checking if the hand has cards.
+   * The expected behavior is that the method returns an iterator over the playing cards in the hand.
    */
   @Test
-  void isNotHeartTest() {
-    deckHand.addCard(new PlayingCard('S', 5));
-    assertFalse(deckHand.isHeart(), "Hand should not contain a heart card");
+  void getCardsOnHandExpectedBehaviorTest() {
+    deckHand.addCard(new PlayingCard('H', 5));
+    deckHand.addCard(new PlayingCard('S', 12));
+
+    Iterator<PlayingCard> iterator = deckHand.getCardsOnHand();
+    int count = 0;
+
+    while (iterator.hasNext()) {
+      count++;
+      iterator.next();
+    }
+    assertEquals(2, count, "Hand should contain 2 cards");
   }
 
   /**
