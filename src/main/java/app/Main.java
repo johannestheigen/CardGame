@@ -1,3 +1,5 @@
+package app;
+
 import view.CardGameView;
 
 /**
@@ -5,8 +7,8 @@ import view.CardGameView;
  * The class contains the main method which launches the graphical user interface.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.2
- * @since 03.08.2025
+ * @version 0.0.3
+ * @since 03.09.2025
  */
 public class Main {
 
