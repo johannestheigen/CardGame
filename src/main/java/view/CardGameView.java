@@ -1,8 +1,11 @@
 package view;
 
 import controller.CardGameController;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -30,21 +33,23 @@ import model.PlayingCard;
  * The CardGameView class represents the view of the card game application.
  * The class is implemented using JavaFX,
  * and it provides a graphical user interface for the card game.
+ * The cards are PNG images, and the card images are stored in the resources folder.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.2
- * @since 03.07.2025
+ * @version 0.0.3
+ * @since 03.09.2025
  */
 public class CardGameView extends Application {
 
-  CardGameController controller; // The controller of the card game application
-  CardManager cardManager; // The card manager of the card game application
-  CardFaceManager cardFaceManager; // The card face manager of the card game application
+  private CardGameController controller; // The controller of the card game application
+  private CardManager cardManager; // The card manager of the card game application
+  private CardFaceManager cardFaceManager; // The card face manager of the card game application
+  private Logger logger; // The logger of the card game application
   private Label sumLabel; // The sum of the face values of the playing cards in the hand
   private Label heartsLabel; // The number of hearts in the hand
   private Label flushLabel; // The flush status of the hand
   private Label queenLabel; // The queen of spades status of the hand
-  private HBox cardPane;
+  private HBox cardPane; // The pane for displaying the playing cards in the hand
 
   /**
    * The main method of the CardGameView class used to launch the graphical user interface.
@@ -57,44 +62,51 @@ public class CardGameView extends Application {
 
   /**
    * The start method of the CardGameView class which is used to set up the
-   * graphical user interface.
+   * graphical user interface. The method creates a border pane layout with a card pane,
+   * an information pane, and a button pane. The method also creates a scene with the layout
+   * and sets the primary stage of the application.
    *
    * @param primaryStage The primary stage of the application
    */
   @Override
   public void start(Stage primaryStage) {
-    cardManager = new CardManager();
-    controller = new CardGameController(cardManager, this);
-    cardFaceManager = new CardFaceManager();
+    try {
+      cardManager = new CardManager();
+      controller = new CardGameController(cardManager, this);
+      cardFaceManager = new CardFaceManager();
+      logger = Logger.getLogger(CardGameView.class.getName());
 
-    BorderPane borderPane = new BorderPane();
+      BorderPane borderPane = new BorderPane();
 
-    Image backgroundImage = new Image(Objects.requireNonNull(getClass()
-        .getResource("/application-background.jpg")).toExternalForm());
+      Image backgroundImage = new Image(Objects.requireNonNull(getClass()
+          .getResource("/application-background.jpg")).toExternalForm()); // Background image
 
-    BackgroundImage background = new BackgroundImage(
-        backgroundImage,
-        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
-        BackgroundPosition.CENTER,
-        new BackgroundSize(100, 100, true, true, false, true)
-    );
+      BackgroundImage background = new BackgroundImage(
+          backgroundImage,
+          BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+          BackgroundPosition.CENTER,
+          new BackgroundSize(100, 100, true, true, false, true)
+      );
 
-    borderPane.setBackground(new Background(background));
-    borderPane.setMaxWidth(300);
-    borderPane.setPrefWidth(100);
+      borderPane.setBackground(new Background(background));
+      borderPane.setMaxWidth(300);
+      borderPane.setPrefWidth(100);
 
-    VBox leftBox = new VBox(10, createCardPane(), createInfoPane());
-    leftBox.setPadding(new Insets(20));
-    borderPane.setLeft(leftBox);
+      VBox leftBox = new VBox(10, createCardPane(), createInfoPane());
+      leftBox.setPadding(new Insets(20));
+      borderPane.setLeft(leftBox);
 
-    VBox rightBox = new VBox(createButtonPane());
-    rightBox.setPadding(new Insets(50, 20, 0, -50));
-    borderPane.setRight(rightBox);
+      VBox rightBox = new VBox(createButtonPane());
+      rightBox.setPadding(new Insets(50, 20, 0, -50));
+      borderPane.setRight(rightBox);
 
-    Scene scene = new Scene(borderPane, 800, 600);
-    primaryStage.setScene(scene);
-    primaryStage.setTitle("Card Game");
-    primaryStage.show();
+      Scene scene = new Scene(borderPane, 800, 600);
+      primaryStage.setScene(scene);
+      primaryStage.setTitle("Card Game");
+      primaryStage.show();
+    } catch (Exception e) {
+      logger.log(Level.SEVERE, "Unexpected error in start(): ", e);
+    }
   }
 
   /*
@@ -109,7 +121,8 @@ public class CardGameView extends Application {
   }
 
   /*
-   * The createButtonPane method is used to create a pane for displaying buttons.
+   * The createButtonPane method is used to create a pane for displaying
+   * the buttons for dealing a hand and checking the hand.
    */
   private VBox createButtonPane() {
     VBox buttonPane = new VBox(20);
@@ -148,10 +161,10 @@ public class CardGameView extends Application {
     infoPane.setHgap(40);
     infoPane.setVgap(15);
 
-    sumLabel = new Label("0");
-    heartsLabel = new Label("No");
-    flushLabel = new Label("No");
-    queenLabel = new Label("No");
+    sumLabel = new Label("0"); // Default value for the sum of the face values
+    heartsLabel = new Label("No"); // Default value for the number of hearts
+    flushLabel = new Label("No"); // Default value for the flush status
+    queenLabel = new Label("No"); // Default value for the queen of spades status
 
     HBox sumPane = createInfoRow("Sum:", sumLabel);
     HBox heartsPane = createInfoRow("Hearts:", heartsLabel);
@@ -196,10 +209,10 @@ public class CardGameView extends Application {
    * The updateInfoPane method is used to update the information
    * pane with the sum of the face values,
    * the number of hearts, the flush status, and the queen of spades status of the hand.
-
-   * @param sum the sum of the face values
-   * @param hearts the number of hearts
-   * @param hasFlush the flush status
+   *
+   * @param sum              the sum of the face values
+   * @param hearts           the number of hearts
+   * @param hasFlush         the flush status
    * @param hasQueenOfSpades the queen of spades status
    */
   public void updateInfoPane(int sum, List<String> hearts,
@@ -212,20 +225,27 @@ public class CardGameView extends Application {
 
   /**
    * The updateCardPane method is used to update the card pane with the playing cards in the hand.
+   * The method clears the card pane and adds image views of the playing cards to the pane by
+   * interacting with the card manager and the card face manager.
    */
   public void updateCardPane() {
-    cardPane.getChildren().clear();
+    try {
+      cardPane.getChildren().clear();
 
-    for (PlayingCard card : cardManager.getHand().getCardsOnHand()) {
-      Image image = cardFaceManager.getCardImage(card);
-      if (image != null) {
-        cardPane.getChildren().add(createCardImageView(image));
+      for (Iterator<PlayingCard> it = cardManager.getHand().getCardsOnHand(); it.hasNext(); ) {
+        PlayingCard card = it.next();
+        Image image = cardFaceManager.getCardImage(card);
+        if (image != null) {
+          cardPane.getChildren().add(createCardImageView(image));
+        }
       }
+    } catch (Exception e) {
+      logger.log(Level.SEVERE, "Unexpected error in updateCardPane(): ", e);
     }
   }
 
   /*
-    * The createCardImageView method is used to create an image view of a playing card.
+   * The createCardImageView method is used to create an image view of a playing card.
    */
   private ImageView createCardImageView(Image image) {
     ImageView imageView = new ImageView(image);
