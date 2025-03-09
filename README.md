@@ -18,84 +18,51 @@ Screenshot of the CardGame application
 ## Project Structure
 
 ```aiignore
-C:.
-|   .gitignore
 |   pom.xml
 |   README.md
-|
-+---.idea
-|   |   .gitignore
-|   |   CardGame.iml
-|   |   checkstyle-idea.xml
-|   |   compiler.xml
-|   |   encodings.xml
-|   |   jarRepositories.xml
-|   |   misc.xml
-|   |   uiDesigner.xml
-|   |   vcs.xml
-|   |   workspace.xml
-|   |
-|   \---checkstyleidea-libs
-|           readme.txt
-|
 +---src
 |   +---main
 |   |   +---java
-|   |   |   |   Main.java
-|   |   |   |
+|   |   |   +---app
+|   |   |   |       Main.java
 |   |   |   +---controller
 |   |   |   |       CardGameController.java
-|   |   |   |
 |   |   |   +---model
 |   |   |   |       CardFaceManager.java
 |   |   |   |       CardManager.java
 |   |   |   |       DeckHand.java
 |   |   |   |       DeckOfCards.java
 |   |   |   |       PlayingCard.java
-|   |   |   |
 |   |   |   \---view
 |   |   |           CardGameView.java
-|   |   |
-|   |   \---resources
-|   |       |   application-background.jpg
-|   |       |
-|   |       \---cards
-|   |
 |   \---test
 |       \---java
 |           \---model
+|                   CardFaceManagerTest.java
 |                   DeckHandTest.java
 |                   DeckOfCardsTest.java
 |                   PlayingCardTest.java
-|
-\---target
-+---classes
-|   |   application-background.jpg
-|   |   Main.class
-|   |
-|   +---cards
-|   |
-|   +---controller
-|   |       CardGameController.class
-|   |
-|   +---model
-|   |       CardFaceManager.class
-|   |       CardManager.class
-|   |       DeckHand.class
-|   |       DeckOfCards.class
-|   |       PlayingCard.class
-|   |
-|   \---view
-|           CardGameView.class
-|
-\---generated-sources
-\---annotations
+    |   +---app
+    |   +---controller
+    |   +---model
+    |   \---view
 ```
 
 ## How to run the project
 
 The project can be run by running the Main.java file in the src/main/java folder in the IntelliJ IDE. 
-Information on how to run the application outside of IntelliJ will be provided soon.
+
+Alternatively, the project can be run by running the following command in the terminal:
+
+```shell
+mvn clean install
+mvn javafx:run
+```
+Screenshots below show the application running in the command line.
+
+![CardGame](src/main/resources/mvn-1.png)
+![CardGame](src/main/resources/mvn-2.png)
+![CardGame](src/main/resources/mvn-3.png)
 
 ## How to run the tests
 The unit tests are managed with Apache Maven.
@@ -105,3 +72,6 @@ To run the tests:
 
 In IntelliJ, use the Maven plugin and select the test phase in the Build Lifecycle.
 Alternatively, `run mvn` test in the terminal
+
+Screenshots below show the tests running in the command line.
+![CardGame](src/main/resources/mvn-4.png)
