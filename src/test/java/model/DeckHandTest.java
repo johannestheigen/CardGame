@@ -8,6 +8,15 @@ import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * DeckHandTest contains test cases for the DeckHand class. The test cases
+ * are used to test the expected behavior when adding cards to the hand,
+ * clearing the hand, calculating the sum of the cards in the hand, checking
+ * if the hand contains hearts, checking if the hand contains a spade card with
+ * face value 12 (Queen), and checking if the hand contains a flush. The test
+ * cases are structured using the Arrange, Act and Assert (AAA) pattern to
+ * structure the test methods.
+ */
 class DeckHandTest {
 
   DeckHand deckHand;
