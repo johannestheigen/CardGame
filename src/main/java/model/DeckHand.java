@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * The model.DeckHand class represents a hand of playing cards.
@@ -10,8 +11,8 @@ import java.util.List;
  * ArrayList libraries.
 
  * @author Johannes Nupen Theigen
- * @version 0.0.5
- * @since 03.09.2025
+ * @version 0.0.6
+ * @since 03.12.2025
  */
 public class DeckHand {
 
@@ -71,11 +72,8 @@ public class DeckHand {
    *
    * @return a list of the playing cards in the hand that are hearts
    */
-  public List<String> getHeartCards() {
-    return new ArrayList<>(hand.stream()
-        .filter(card -> card.getSuit() == 'H')
-        .map(PlayingCard::getAsString)
-        .toList());
+  public Stream<String> getHeartCards() {
+    return hand.stream().filter(card -> card.getSuit() == 'H').map(PlayingCard::getAsString);
   }
 
   /**
