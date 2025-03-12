@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -36,8 +38,8 @@ import model.PlayingCard;
  * The cards are PNG images, and the card images are stored in the resources folder.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.3
- * @since 03.09.2025
+ * @version 0.0.4
+ * @since 03.12.2025
  */
 public class CardGameView extends Application {
 
@@ -215,10 +217,11 @@ public class CardGameView extends Application {
    * @param hasFlush         the flush status
    * @param hasQueenOfSpades the queen of spades status
    */
-  public void updateInfoPane(int sum, List<String> hearts,
+  public void updateInfoPane(int sum, Stream<String> hearts,
                              boolean hasFlush, boolean hasQueenOfSpades) {
     sumLabel.setText(String.valueOf(sum));
-    heartsLabel.setText(hearts.isEmpty() ? "No" : String.join(", ", hearts));
+    List<String> heartList = hearts.toList();
+    heartsLabel.setText(heartList.isEmpty() ? "No" : String.join(", ", heartList));
     flushLabel.setText(hasFlush ? "Yes" : "No");
     queenLabel.setText(hasQueenOfSpades ? "Yes" : "No");
   }
