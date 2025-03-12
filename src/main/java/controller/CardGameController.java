@@ -1,6 +1,7 @@
 package controller;
 
-import java.util.List;
+import java.util.stream.Stream;
+
 import model.CardManager;
 import view.CardGameView;
 
@@ -10,8 +11,8 @@ import view.CardGameView;
  * logic and view together.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.2
- * @since 03.09.2025
+ * @version 0.0.3
+ * @since 03.12.2025
  */
 public class CardGameController {
   private final CardManager cardManager;
@@ -49,7 +50,7 @@ public class CardGameController {
    */
   public void checkHand() {
     int sum = cardManager.calculateSumOfCardsOnHand();
-    List<String> hearts = cardManager.checkIfHandContainsHearts(); // Debug this
+    Stream<String> hearts = cardManager.checkIfHandContainsHearts();
     boolean hasFlush = cardManager.checkIfHandContainsFlush();
     boolean hasQueenOfSpades = cardManager.checkIfHandContainsSpadeAndQueen();
     cardGameView.updateInfoPane(sum, hearts, hasFlush, hasQueenOfSpades);
