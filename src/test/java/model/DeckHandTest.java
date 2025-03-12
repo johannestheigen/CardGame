@@ -92,7 +92,7 @@ class DeckHandTest {
     deckHand.addCard(new PlayingCard('H', 10));
     deckHand.addCard(new PlayingCard('H', 3));
 
-    assertEquals(4, deckHand.getHeartCards().size(), "Hand should contain 4 heart cards");
+    assertEquals(4, deckHand.getHeartCards().toList().size(), "Hand should contain 4 heart cards");
   }
 
   /**

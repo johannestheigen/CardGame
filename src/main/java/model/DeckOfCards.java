@@ -1,9 +1,7 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * The model.DeckOfCards class represents a deck of playing Cards. The deck is a standard deck of 52
@@ -11,7 +9,7 @@ import java.util.Random;
  * libraries.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.7
+ * @version 0.0.8
  * @since 03.09.2025
  */
 public class DeckOfCards {
@@ -101,8 +99,8 @@ public class DeckOfCards {
 
    * @return a copy of the list of playing Cards in the deck
    */
-  public List<PlayingCard> getCards() {
-    return new ArrayList<>(cards);
+  public Stream<PlayingCard> getCards() {
+    return cards.stream();
   }
 
   /**

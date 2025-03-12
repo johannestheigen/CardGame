@@ -35,9 +35,9 @@ class DeckOfCardsTest {
    */
   @Test
   void ShuffleExpectedBehaviorTest() {
-    List<PlayingCard> originalOrder = deck.getCards();
+    List<PlayingCard> originalOrder = deck.getCards().toList();
     deck.shuffle();
-    List<PlayingCard> shuffledOrder = deck.getCards();
+    List<PlayingCard> shuffledOrder = deck.getCards().toList();
     assertNotEquals(originalOrder, shuffledOrder, "Deck should be shuffled");
   }
 
@@ -69,7 +69,7 @@ class DeckOfCardsTest {
   void drawCardExpectedBehaviorTest() {
     PlayingCard card = deck.drawCard();
     assertNotNull(card, "Should return a card");
-    assertEquals(51, deck.getCards().size(), "Deck should have one less card after drawing");
+    assertEquals(51, deck.getCards().toList().size(), "Deck should have one less card after drawing");
   }
 
   /**
