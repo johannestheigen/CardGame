@@ -4,13 +4,13 @@ import java.util.*;
 import java.util.stream.Stream;
 
 /**
- * The model.DeckOfCards class represents a deck of playing Cards. The deck is a standard deck of 52
+ * The DeckOfCards class represents a deck of playing Cards. The deck is a standard deck of 52
  * playing Cards, with 4 suits and 13 faces. The class is implemented using the List and ArrayList
  * libraries.
  *
  * @author Johannes Nupen Theigen
- * @version 0.0.8
- * @since 03.09.2025
+ * @version 0.0.9
+ * @since 03.12.2025
  */
 public class DeckOfCards {
 
