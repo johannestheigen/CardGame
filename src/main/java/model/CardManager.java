@@ -1,18 +1,18 @@
 package model;
 
-import java.util.List;
+import java.util.stream.Stream;
 
 /**
- * The model.CardManager class represents a manager for a deck of playing cards and a hand of playing
- * cards. The class is implemented using the model.DeckOfCards and model.DeckHand classes and it enables
+ * The CardManager class represents a manager for a deck of playing cards and a hand of playing
+ * cards. The class is implemented using the DeckOfCards and model.DeckHand classes, and it enables
  * the two classes to interact with each other. The class provides methods for dealing a hand of
  * playing cards, shuffling the deck of playing cards, calculating the sum of the face values of the
  * playing cards in the hand, checking if the hand contains a heart, checking if the hand contains a
  * spade and a queen, and checking if the hand contains a flush.
 
  * @author Johannes Nupen Theigen
- * @version 0.0.4
- * @since 03.09.2025
+ * @version 0.0.5
+ * @since 03.12.2025
  */
 public class CardManager {
 
@@ -66,10 +66,10 @@ public class CardManager {
 
   /**
    * Checks if the hand contains a heart. A heart is a playing card with the suit 'H'.
-
+   *
    * @return a list of the hearts in the hand
    */
-  public List<String> checkIfHandContainsHearts() {
+  public Stream<String> checkIfHandContainsHearts() {
     return hand.getHeartCards();
   }
 
